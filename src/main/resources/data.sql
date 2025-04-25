@@ -5,18 +5,15 @@ INSERT INTO tb_evento (evento, data_hora_evento, descricao) VALUES('Chuva', '202
 INSERT INTO tb_sensor (tipo_sensor, localizacao) VALUES('Nível de água', 'São Paulo');
 
 -- Inserir leituras para os sensores
--- Aqui estou assumindo que os IDs dos sensores são 1, 2, 3 e estamos associando uma leitura a cada sensor.
 INSERT INTO tb_leitura (sensor_id, valor, data_hora) VALUES(1, 23.5, '2024-11-08');
 
 INSERT INTO tb_evento_sensor (evento_id, sensor_id) VALUES (1, 1);
 
 -- Inserir alertas para as leituras
--- Aqui estou assumindo que os IDs das leituras são 1, 2, 3.
 INSERT INTO tb_alerta (leitura_sensor_id, data_hora_alerta, status, tipo_alerta)
 VALUES (1, '2024-11-08 10:15:00', 'Ativo', 'Alerta de Nível');
 
 -- Inserir manutenções associadas aos alertas
--- Aqui estou assumindo que os IDs dos alertas são 1 e 2.
 INSERT INTO tb_manutencao (data_hora_manutencao, descricao, tipo_manutencao, alerta_id)
 VALUES('2024-11-08 12:00:00', 'Evacuar água para previnir possíveis enchentes.', 'Prevensão de enchentes', 1);
 

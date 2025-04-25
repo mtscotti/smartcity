@@ -13,7 +13,7 @@ public class Evento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String evento;
     private LocalDateTime dataHoraEvento;
     private String descricao;
@@ -28,18 +28,18 @@ public class Evento {
 
     public Evento () {}
 
-    public Evento(Integer id, String evento, LocalDateTime dataHoraEvento, String descricao) {
+    public Evento(Long id, String evento, LocalDateTime dataHoraEvento, String descricao) {
         this.id = id;
         this.evento = evento;
         this.dataHoraEvento = dataHoraEvento;
         this.descricao = descricao;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

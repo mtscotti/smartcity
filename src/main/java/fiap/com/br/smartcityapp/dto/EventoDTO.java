@@ -14,7 +14,7 @@ import java.util.List;
 
 public class EventoDTO {
 
-    private Integer id;
+    private Long id;
     @Size(min = 10, max = 30, message = "Entre 10 e 30 caracteres")
     @NotBlank(message = "Campo requerido")
     private String evento;
@@ -23,7 +23,7 @@ public class EventoDTO {
     @NotEmpty(message = "Deve ter pelo menos 1 sensor")
     private List<Sensor> sensores;
 
-    public EventoDTO(Integer id, String evento, LocalDateTime dataHoraEvento, String descricao) {
+    public EventoDTO(Long id, String evento, LocalDateTime dataHoraEvento, String descricao) {
         this.id = id;
         this.evento = evento;
         this.dataHoraEvento = dataHoraEvento;
@@ -37,7 +37,7 @@ public class EventoDTO {
         descricao = entity.getDescricao();
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 

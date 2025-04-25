@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .  # Caminho do Dockerfile e do código
+    container_name: backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - DB_URL=jdbc:h2:file:/app/data/testdb;DB_CLOSE_ON_EXIT=FALSE
+      - DB_DRIVER=org.h2.Driver
+      - DB_USERNAME=sa
+      - DB_PASSWORD=password
+    volumes:
+      - backend-data:/app/data  # Persistência do arquivo do banco
+    networks:
+      - smartcity-network
+
+networks:
+  smartcity-network:
+    driver: bridge
+
+volumes:
+  backend-data:
+    driver: local
