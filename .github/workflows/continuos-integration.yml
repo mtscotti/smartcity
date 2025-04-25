@@ -36,3 +36,4 @@ jobs:
           git branch   # Verificar a branch atual
           java --version  # Verificar a versão do Java configurado
           mvn test  # Se você tiver testes, pode rodá-los aqui
+          
