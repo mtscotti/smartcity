@@ -30,8 +30,9 @@ jobs:
           context: .
           push: false
           tags: smartcityapp-backend:latest
+
       - name: Executar Scripts
-        run:
+        run: |
           git branch   # Verificar a branch atual
           java --version  # Verificar a versão do Java configurado
           mvn test  # Se você tiver testes, pode rodá-los aqui
