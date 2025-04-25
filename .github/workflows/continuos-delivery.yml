@@ -42,4 +42,4 @@ jobs:
           app-name: 'SmartCityAppC1'
           slot-name: 'production'
           publish-profile: ${{ secrets.AZURE_PROFILE }}
-          images: 'index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/smartcityapp:${{ github.sha }}
+          images: 'index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/smartcity:${{ github.sha }}
