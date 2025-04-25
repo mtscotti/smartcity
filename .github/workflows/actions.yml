@@ -30,7 +30,6 @@ jobs:
           context: .
           push: false
           tags: smartcityapp-backend:latest
-
       - name: Executar Scripts
         run:
           git branch   # Verificar a branch atual
