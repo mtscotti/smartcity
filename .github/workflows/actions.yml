@@ -1,0 +1,38 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - feature/**
+
+jobs:
+  checkout_java_docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java SDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build
+        run: |
+          java --version  # Para verificar se o Java foi corretamente configurado
+          mvn clean package  # Comando para compilar e empacotar o código-fonte
+
+      - name: Build Docker Image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          tags: smartcityapp-backend:latest
+
+      - name: Executar Scripts
+        run:
+          git branch   # Verificar a branch atual
+          java --version  # Verificar a versão do Java configurado
+          mvn test  # Se você tiver testes, pode rodá-los aqui

@@ -1,0 +1,26 @@
+services:
+  # Serviço do Backend
+  backend:
+    build:
+      context: .  # Diretório onde está o código do backend
+    container_name: backend
+    ports:
+      - "8080:8080"  # Porta do seu backend (ajuste conforme necessário)
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev  # Exemplo de variável de ambiente para configurar o perfil Spring (se for o caso)
+      - DB_URL=jdbc:h2:mem:testdb  # URL do banco de dados H2 (em memória)
+      - DB_DRIVER=org.h2.Driver  # Driver JDBC para o H2
+      - DB_USERNAME=sa  # Usuário do banco de dados H2
+      - DB_PASSWORD=password  # Senha do banco de dados H2
+    networks:
+      - smartcity-network
+    volumes:
+      - backend-data:/app/data  # Persistência de dados do backend, se necessário (ajuste conforme o seu uso)
+
+networks:
+  smartcity-network:
+    driver: bridge  # Rede padrão do Docker Compose
+
+volumes:
+  backend-data:
+    driver: local  # Persistência de dados do backend (ajuste conforme necessário)
